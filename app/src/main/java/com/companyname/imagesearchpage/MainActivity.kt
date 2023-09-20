@@ -2,6 +2,7 @@ package com.companyname.imagesearchpage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.companyname.imagesearchpage.Adapter.ViewPager2Adapter
 import com.companyname.imagesearchpage.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
 

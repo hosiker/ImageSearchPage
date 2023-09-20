@@ -1,8 +1,11 @@
-package com.companyname.imagesearchpage
+package com.companyname.imagesearchpage.Adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.companyname.imagesearchpage.LikeFragment
+import com.companyname.imagesearchpage.SearchResultFragment
+import com.companyname.imagesearchpage.Tabs
 
 class ViewPager2Adapter(fragmentActivity: FragmentActivity) :
     FragmentStateAdapter(fragmentActivity) {
