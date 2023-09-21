@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.companyname.imagesearchpage.LikeFragment
 import com.companyname.imagesearchpage.SearchResultFragment
-import com.companyname.imagesearchpage.Tabs
+import com.companyname.imagesearchpage.Item.Tabs
 
 class ViewPager2Adapter(fragmentActivity: FragmentActivity) :
     FragmentStateAdapter(fragmentActivity) {

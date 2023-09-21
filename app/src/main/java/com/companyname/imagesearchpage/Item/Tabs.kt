@@ -1,4 +1,4 @@
-package com.companyname.imagesearchpage
+package com.companyname.imagesearchpage.Item
 
 import androidx.fragment.app.Fragment
 

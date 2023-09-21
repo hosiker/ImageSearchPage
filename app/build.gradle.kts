@@ -2,8 +2,10 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
 
-    //직렬화
+    //추가
+
     id("kotlin-parcelize")
+    id("kotlin-android")
 }
 
 android {
@@ -12,7 +14,7 @@ android {
 
     defaultConfig {
         applicationId = "com.companyname.imagesearchpage"
-        minSdk = 31
+        minSdk = 24
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -37,12 +39,26 @@ android {
         jvmTarget = "1.8"
     }
 
-    buildFeatures{
-        viewBinding=true
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
     }
 }
 
 dependencies {
+
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    // Converter ( JSON 타입 결과를 객체로 매핑 )
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    // okhttp3
+    implementation("com.squareup.okhttp3:logging-interceptor:4.5.0")
+    // Gson
+    implementation ("com.google.code.gson:gson:2.10.1")
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.10.0")
+
+    implementation ("com.github.bumptech.glide:glide:4.14.1")
+    implementation ("androidx.fragment:fragment-ktx:1.6.1")
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -52,4 +68,5 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
 }
