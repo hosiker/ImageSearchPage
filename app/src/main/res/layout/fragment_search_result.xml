@@ -40,7 +40,6 @@
 
             android:layout_weight="4"
             android:background="#008000"
-            android:enabled="false"
             android:hint="검색"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">

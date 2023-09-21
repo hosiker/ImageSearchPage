@@ -38,8 +38,7 @@ class ViewAdapter(private val mContext: Context) : RecyclerView.Adapter<ViewAdap
 
         Glide.with(mContext).load(item.thumbnailUrl).into(holder.thumbNail)
 
-        holder.like.visibility = if (item.like) View.VISIBLE
-                                 else View.INVISIBLE
+        holder.like.visibility = if (item.like) View.VISIBLE else View.INVISIBLE
         holder.title.text = item.displaySiteName
         holder.dateTime.text = getDateFromTimestampWithFormat(item.dateTime,"yyyy-MM-dd'T'HH:mm:ss.SSS+09:00","yyyy-MM-dd HH:mm:ss")
 

@@ -26,6 +26,8 @@ class SearchResultFragment : Fragment() {
     private lateinit var mContext: Context
     private lateinit var adapter: ViewAdapter
 
+    private lateinit var gridmanager: StaggeredGridLayoutManager
+
     private var resItems:ArrayList<ItemY> = ArrayList()
 
     override fun onAttach(context: Context){
@@ -39,17 +41,29 @@ class SearchResultFragment : Fragment() {
     ): View? {
         binding = FragmentSearchResultBinding.inflate(inflater, container, false)
 
-        return binding!!.root
+        setupViews()
+        setupListeners()
+
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var gridView = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-        binding.recyclerViewLayout.layoutManager = gridView
+
+    }
+
+    private fun setupViews(){
+
+        gridmanager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        binding.recyclerViewLayout.layoutManager = gridmanager
 
         adapter = ViewAdapter(mContext)
         binding.recyclerViewLayout.adapter = adapter
+        binding.recyclerViewLayout.itemAnimator = null
+    }
+
+    private fun setupListeners(){
 
         // 검색 버튼 기능
         binding.searchBtn.setOnClickListener {
@@ -71,12 +85,13 @@ class SearchResultFragment : Fragment() {
             ?.enqueue(object : Callback<ItemX?> {
                 override fun onResponse(call: Call<ItemX?>, response: Response<ItemX?>) {
                     response.body()?.metaData?.let { metaData ->
-                        if (metaData.totalCount!! > 0) {
+                        if (metaData.totalCount > 0) {
                             response.body()!!.documents.forEach { document ->
                                 val title = document.displaySiteName
-                                val datetime:String? = document.dateTime
+                                val datetime = document.dateTime
                                 val url = document.thumbnailUrl
                                 resItems.add(ItemY(title,datetime,url))
+                                Log.d("check","HOSIK $resItems")
                             }
                         }
                     }

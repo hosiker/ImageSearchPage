@@ -2,7 +2,6 @@ package com.companyname.imagesearchpage.Item
 
 
 import com.google.gson.annotations.SerializedName
-import java.time.DateTimeException
 
 //Respone : 결과를 받아오는 클래스
 data class ItemX(
@@ -10,30 +9,30 @@ data class ItemX(
     val metaData: Metadata,
 
     @SerializedName("documents")
-    val documents: MutableList<Documents>
+    val documents: ArrayList<Documents>
 )
 
 //Meta : 필요한 값 지정
 data class Metadata(
     @SerializedName("totalCount")
-    val totalCount:Int?,
+    val totalCount:Int,
 
     @SerializedName("pageableCount")
-    val pageableCount:Int?,
+    val pageableCount:Int,
 
     @SerializedName("isEnd")
-    val isEnd:Boolean?
+    val isEnd:Boolean
 )
 //Documents : 필요한 값 지정
 data class Documents(
     @SerializedName("thumbnailUrl")
-    val thumbnailUrl:String?,
+    val thumbnailUrl:String,
 
     @SerializedName("display_sitename")
-    val displaySiteName:String?,
+    val displaySiteName:String,
 
     @SerializedName("datetime")
-    val dateTime:String?,
+    val dateTime:String,
 
     @SerializedName("collection")
     val collection: String,

@@ -5,6 +5,5 @@ object Constants {
     const val BASE_URL = "https://dapi.kakao.com"
     //카카오 API 인증 헤더 뒤에는 내가 받은 REST 키값
     const val AUTH_HEADER = "KakaoAK da2a536df69a19c1f5c63bea394af716"
-    //앱 파일 이름
-    const val PREFS_NAME = "com.companyname.imagesearchpage.prefs"
+
 }

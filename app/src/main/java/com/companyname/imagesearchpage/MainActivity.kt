@@ -2,6 +2,8 @@ package com.companyname.imagesearchpage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import com.companyname.imagesearchpage.Adapter.ViewPager2Adapter
 import com.companyname.imagesearchpage.Item.ItemY
 import com.companyname.imagesearchpage.databinding.ActivityMainBinding
@@ -32,7 +34,6 @@ class MainActivity : AppCompatActivity() {
             tab.setText(viewPager2Adapter.getTitle(position))
             tab.setIcon(tabsIcon[position])
         }.attach()
-
     }
 
     fun addLikedItem(item: ItemY) {
