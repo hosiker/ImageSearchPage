@@ -29,13 +29,12 @@ class ViewAdapter2(var mContext: Context) : RecyclerView.Adapter<RecyclerView.Vi
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        // 이미지 로딩 라이브러리(Glide)를 사용해 썸네일 이미지를 로드한다.
+
         Glide.with(mContext)
             .load(items[position].thumbnailUrl)
             .into((holder as ItemViewHolder).thumbNail)
 
         holder.title.text = items[position].displaySiteName
-        holder.iv_like.visibility = View.GONE // '좋아요' 아이콘을 숨김
         holder.dateTime.text =
             getDateFromTimestampWithFormat(
                 items[position].dateTime,
@@ -46,13 +45,11 @@ class ViewAdapter2(var mContext: Context) : RecyclerView.Adapter<RecyclerView.Vi
 
     inner class ItemViewHolder(binding: GreedviewItemBinding) : RecyclerView.ViewHolder(binding.root) {
         var thumbNail: ImageView = binding.thumbnailImage
-        var iv_like: ImageView = binding.likeImage
         var title: TextView = binding.itemTitle
         var dateTime: TextView = binding.itemDatetime
         var cl_item: ConstraintLayout = binding.gridViewLayout
 
         init {
-            // 아이템 클릭 리스너 설정
             cl_item.setOnClickListener {
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
