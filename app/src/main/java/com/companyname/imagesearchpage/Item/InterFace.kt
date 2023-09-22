@@ -9,7 +9,7 @@ interface InterFace {
     @GET("v2/search/image")
     fun getItem(
         @Header("Authorization") apikey:String?,
-        @Query("Query") query:String?,
+        @Query("query") query:String?,
         @Query("sort") sort: String?,
         @Query("page") page:Int,
         @Query("size") size:Int

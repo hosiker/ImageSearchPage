@@ -4,13 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/gridViewLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    >
 
     <ImageView
         android:id="@+id/thumbnailImage"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+
+        android:adjustViewBounds="true"
+        android:maxHeight="240dp"
+        android:minHeight="30dp"
+        android:scaleType="fitXY"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,7 +30,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="10dp"
-
+        android:ellipsize="end"
+        android:maxLines="1"
         android:text="item_title"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +44,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="28dp"
-
         android:text="item_datetime"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/thumbnailImage" />

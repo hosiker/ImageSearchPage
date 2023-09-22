@@ -84,11 +84,11 @@ class SearchResultFragment : Fragment() {
         apiService.getItem(Constants.AUTH_HEADER, query, "recency", 1, 80)
             ?.enqueue(object : Callback<ItemX?> {
                 override fun onResponse(call: Call<ItemX?>, response: Response<ItemX?>) {
-                    response.body()?.metaData?.let { metaData ->
+                    response.body()?.meta?.let { metaData ->
                         if (metaData.totalCount > 0) {
                             response.body()!!.documents.forEach { document ->
-                                val title = document.displaySiteName
-                                val datetime = document.dateTime
+                                val title = document.displaySitename
+                                val datetime = document.datetime
                                 val url = document.thumbnailUrl
                                 resItems.add(ItemY(title,datetime,url))
                                 Log.d("check","HOSIK $resItems")
